@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 		var kwArgs = this.options();
 		kwArgs.sendMessage = grunt.verbose.writeln.bind(grunt.verbose);
 		kwArgs.files = this.filesSrc.map(function (filename) {
-			return path.relative(kwArgs.baseDir, filename);
+			return path.relative(kwArgs.baseDir || '', filename);
 		});
 
 		dtsGenerator(kwArgs).then(function () {
